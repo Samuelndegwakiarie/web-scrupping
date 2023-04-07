@@ -1,22 +1,21 @@
 <?php
-// Create a new cURL resource
 $curl = curl_init();
 
 // Set the URL and other cURL options
-curl_setopt($curl, CURLOPT_URL, "https://example.com"); // Replace with the website URL you want to scrape
+curl_setopt($curl, CURLOPT_URL, "https://scrubexample.com");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 // Send the request and get the response
 $response = curl_exec($curl);
 
-// Close cURL resource
 curl_close($curl);
 
 // Load the HTML into a DOMDocument
 $dom = new DOMDocument();
 $dom->loadHTML($response);
 
-// Find all the links on the page and store them in an array
+//  tthe links on the page 
+//store them in an array
 $links = array();
 foreach($dom->getElementsByTagName('a') as $link) {
     $href = $link->getAttribute('href');
